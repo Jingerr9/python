@@ -8,12 +8,9 @@ import datetime as dt
 from datetime import date
 import altair as alt
 import mapbox as mb
-import os
 
 def load_data():
-    database = os.path.join(os.getcwd(),"BosAirBnB2021.csv")
-    df = pd.read_csv(database)
-    #df = pd.read_csv("BosAirBnB2021.csv")
+    df = pd.read_csv('https://raw.githubusercontent.com/Jingerr9/python/main/BosAirBnB2021.csv')
     df = df.drop(columns = "neighbourhood_group")
     df ["estimated_income"] = df["price"]*df["minimum_nights"]
     return df
