@@ -10,8 +10,8 @@ import altair as alt
 import mapbox as mb
 
 def load_data():
-    df = pd.read_csv("HW/Project/BosAirBnB2021.csv")
-    #df = pd.read_csv("BosAirBnB2021.csv")
+    database = os.path.join(os.getcwd(),"BosAirBnB2021.csv")
+    df = pd.read_csv(database)
     df = df.drop(columns = "neighbourhood_group")
     df ["estimated_income"] = df["price"]*df["minimum_nights"]
     return df
